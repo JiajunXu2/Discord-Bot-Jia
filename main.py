@@ -47,5 +47,8 @@ async def _8ball(ctx, *, question):
                 "Outlook not so good.",
                 "Very doubtful."]
   await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+
+@client.event
+async def on_join():
   
 client.run(os.getenv("JiaTOKEN"))
