@@ -51,4 +51,15 @@ async def _8ball(ctx, *, question):
 @client.event
 async def on_join():
   
+  
+#the id of eveyone who might use the bot
+"""
+players =  {'P' : 170311349975384064,
+            'H' : 161262186033840129,
+            'K' : 528004487655194625,
+            'N' : 239853470142824449,
+            'G' : 212712880124985346,
+            'C' : 263063203892690945}
+"""
+  
 client.run(os.getenv("JiaTOKEN"))
