@@ -60,6 +60,13 @@ players =  {'P' : 170311349975384064,
             'N' : 239853470142824449,
             'G' : 212712880124985346,
             'C' : 263063203892690945}
+            
+bIn_cOut = {'P' : {'buyin' : 0, 'cashout' : 0},
+            'H' : {'buyin' : 0, 'cashout' : 0},
+            'K' : {'buyin' : 0, 'cashout' : 0},
+            'N' : {'buyin' : 0, 'cashout' : 0},
+            'G' : {'buyin' : 0, 'cashout' : 0},
+            'C' : {'buyin' : 0, 'cashout' : 0}}
 """
   
 client.run(os.getenv("JiaTOKEN"))
