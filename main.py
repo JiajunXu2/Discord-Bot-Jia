@@ -67,6 +67,19 @@ bIn_cOut = {'P' : {'buyin' : 0, 'cashout' : 0},
             'N' : {'buyin' : 0, 'cashout' : 0},
             'G' : {'buyin' : 0, 'cashout' : 0},
             'C' : {'buyin' : 0, 'cashout' : 0}}
+            
+#a dictionary of dictsto store the money being moved through bets and buy backs
+moneyOwed ={'P': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
+            'H': {'p': 0, 'k': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
+            'K': {'h': 0, 'p': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
+            'N': {'h': 0, 'k': 0, 'p': 0, 'g': 0, 'c': 0, 'j': 0},
+            'G': {'h': 0, 'k': 0, 'n': 0, 'p': 0, 'c': 0, 'j': 0},
+            'C': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'p': 0, 'j': 0},
+            'J': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'p': 0, 'c': 0}}
+            
+#, check=check
+@client.command(aliases = ["play"])
+async def _play(ctx):
 """
   
 client.run(os.getenv("JiaTOKEN"))
