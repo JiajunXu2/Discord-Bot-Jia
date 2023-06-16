@@ -80,6 +80,13 @@ moneyOwed ={'P': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
 #, check=check
 @client.command(aliases = ["play"])
 async def _play(ctx):
+string1 = len(players.keys())
+print(string1)
+print("string1")
+temp = random.choice(list(players.values()))
+
+cashflow = input("enter players and BUY-IN separated by ':' ")
+while cashflow != "":
 """
   
 client.run(os.getenv("JiaTOKEN"))
