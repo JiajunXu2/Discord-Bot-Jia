@@ -87,6 +87,15 @@ temp = random.choice(list(players.values()))
 
 cashflow = input("enter players and BUY-IN separated by ':' ")
 while cashflow != "":
+  for key, value in players.items():
+    if value == temp:
+      #keep running if user does not input blank
+      PMtable = cashflow.split(":")
+      moneyOwed[key][PMtable[0]] = int(PMtable[1])
+      
+  cashflow = input("enter BUY-BACK separated by ':' ")
+  
+print(*moneyOwed.items(), sep = "\n") 
 """
   
 client.run(os.getenv("JiaTOKEN"))
