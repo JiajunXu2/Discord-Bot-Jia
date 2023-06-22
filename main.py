@@ -61,12 +61,6 @@ players =  {'P' : 170311349975384064,
             'G' : 212712880124985346,
             'C' : 263063203892690945}
             
-bIn_cOut = {'P' : {'buyin' : 0, 'cashout' : 0},
-            'H' : {'buyin' : 0, 'cashout' : 0},
-            'K' : {'buyin' : 0, 'cashout' : 0},
-            'N' : {'buyin' : 0, 'cashout' : 0},
-            'G' : {'buyin' : 0, 'cashout' : 0},
-            'C' : {'buyin' : 0, 'cashout' : 0}}
             
 #a dictionary of dictsto store the money being moved through bets and buy backs
 moneyOwed ={'P': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
@@ -96,6 +90,7 @@ while cashflow != "":
   cashflow = input("enter BUY-BACK separated by ':' ")
   
 print(*moneyOwed.items(), sep = "\n") 
+
 """
   
 client.run(os.getenv("JiaTOKEN"))
