@@ -74,22 +74,32 @@ moneyOwed ={'P': {'h': 0, 'k': 0, 'n': 0, 'g': 0, 'c': 0, 'j': 0},
 #, check=check
 @client.command(aliases = ["play"])
 async def _play(ctx):
-string1 = len(players.keys())
-print(string1)
-print("string1")
-temp = random.choice(list(players.values()))
+  await ctx.send("enter BUY-IN separated by ':', when finished write 'done'.")
+  buy_in = await client.wait_for("message")
+  while buy_in != "done":
+    buyin_split = buy_in.split(":")
+    for key in bIn_cOut.keys():
+      if buyin_split[0] == key:
+        bIn_cOut[key]['buyin'] == buyin_split[1]
+    buy_in = await client.wait_for("message")
+  await ctx.send("enter BUY-BACK separated by ':', when finished write 'done'.")      
+  buy_back = await client.wait_for("message")
+  while buy_back != "done":
+    buyback_split = buy_back.split(":")
+    for key, value in players.items():
+      if client.author.id == value:
+        moneyOwed[key][buyback_split[0]] = int(buyback_split[1])
+    buy_back = await client.wait_for("message")
+  await ctx.send("enter CASH-OUT separated by ':', when finished write 'done'.")
+  cash_out = await client.wait_for("message")
+  while cash_out != "done":
+    cashout_split = cash_out.split(":")
+    for key in bIn_cOut.keys():
+      if cashout_split[0] == key:
+        bIn_cOut[key]['cachout'] == cashout_split[1]
+    cash_out = await client.wait_for("message")
 
-cashflow = input("enter players and BUY-IN separated by ':' ")
-while cashflow != "":
-  for key, value in players.items():
-    if value == temp:
-      #keep running if user does not input blank
-      PMtable = cashflow.split(":")
-      moneyOwed[key][PMtable[0]] = int(PMtable[1])
-      
-  cashflow = input("enter BUY-BACK separated by ':' ")
-  
-print(*moneyOwed.items(), sep = "\n") 
+  await ctx.send(*moneyOwed.items(), sep = "\n")
 
 """
   
