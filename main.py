@@ -102,5 +102,21 @@ async def _play(ctx):
   await ctx.send(*moneyOwed.items(), sep = "\n")
 
 """
+async def tell_story(prompt):
+  try:
+    response = openai.Completion.create(
+      model="text-davinci-003",
+      prompt=prompt,
+      temperature=0.7,
+      max_tokens=256,
+      top_p=1,
+      frequency_penalty=0,
+      presence_penalty=0
+    )
+    text = response.choices[0].text
+    return text
+    
+  except Exception:
+    message.channel.send("Error generating prompt")
   
 client.run(os.getenv("JiaTOKEN"))
