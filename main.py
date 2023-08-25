@@ -68,6 +68,9 @@ async def tell_story(ctx, *, prompt):
     
   except Exception:
     message.channel.send("Error generating prompt")
+    
+@client.command(aliases = ["picture"])
+async def generate_picture(ctx, *, prompt):
   
 client.run(os.getenv("JiaTOKEN"))
 openai.api_key = os.getenv("JiaKey")
