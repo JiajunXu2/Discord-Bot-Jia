@@ -71,6 +71,18 @@ async def tell_story(ctx, *, prompt):
     
 @client.command(aliases = ["picture"])
 async def generate_picture(ctx, *, prompt):
+  def create_pictures(prompt):
+  try:
+    response = openai.Image.create(
+      prompt=prompt,
+      n=1,
+      size="256x256"
+    )
+    image_url = response['data'][0]['url']
+    return image_url
+    
+  except Exception:
+    
   
 client.run(os.getenv("JiaTOKEN"))
 openai.api_key = os.getenv("JiaKey")
