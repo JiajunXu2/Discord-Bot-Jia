@@ -2,6 +2,7 @@
 import os
 import random
 import discord 
+import requests
 from discord.ext import commands, tasks
 
 #every bot command to start with a period
@@ -80,8 +81,10 @@ async def generate_picture(ctx, *, prompt):
     )
     image_url = response['data'][0]['url']
     return image_url
-    
   except Exception:
+    message.channel.send("Error generating image")
+
+@client.command(aliases = ["amazon"])
     
   
 client.run(os.getenv("JiaTOKEN"))
