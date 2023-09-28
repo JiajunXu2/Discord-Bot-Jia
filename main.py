@@ -4,6 +4,7 @@ import random
 import discord 
 import requests
 from discord.ext import commands, tasks
+from features.OpenAI import create_pictures, create_story
 
 #every bot command to start with a period
 client = commands.Bot(command_prefix = ".") 
@@ -54,37 +55,14 @@ async def on_join():
   
 @client.command(aliases = ["prompt"])
 async def tell_story(ctx, *, prompt):
-  try:
-    response = openai.Completion.create(
-      model="text-davinci-003",
-      prompt=prompt,
-      temperature=0.7,
-      max_tokens=256,
-      top_p=1,
-      frequency_penalty=0,
-      presence_penalty=0
-    )
-    text = response.choices[0].text
-    await ctx.send(f'Prompt: {prompt} \n{text}')
-    
-  except Exception:
-    message.channel.send("Error generating prompt")
+  create_story(prompt)
     
 @client.command(aliases = ["picture"])
 async def generate_picture(ctx, *, prompt):
-  def create_pictures(prompt):
-  try:
-    response = openai.Image.create(
-      prompt=prompt,
-      n=1,
-      size="256x256"
-    )
-    image_url = response['data'][0]['url']
-    return image_url
-  except Exception:
-    message.channel.send("Error generating image")
+  create_pictures(prompt)
 
 @client.command(aliases = ["amazon"])
+
     
   
 client.run(os.getenv("JiaTOKEN"))
